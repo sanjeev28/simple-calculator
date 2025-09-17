@@ -49,6 +49,10 @@ body {
   text-align: center;
 }
 
+a {
+    color: #ee2e99;
+    text-decoration: none;
+}
 .display-row{
   display:flex;
   justify-content:flex-end;
