@@ -1,24 +1,49 @@
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function Calculator() {
-  const calcnum = [
-    'Del', 0, 1, 2, 3,
-    4, 5, 6, 7, 8,
-    9, '.', '=', '+',
-    '-', '*', '/'
+  const calcButtons = [
+    { label: 'C', value: 'clear', className: 'key-del' },
+    { label: 'Del', value: 'Del', className: 'key-del' },
+    { label: '%', value: '%', className: 'operator' },
+    { label: '÷', value: '/', className: 'operator' },
+    { label: '7', value: '7' },
+    { label: '8', value: '8' },
+    { label: '9', value: '9' },
+    { label: '×', value: '*', className: 'operator' },
+    { label: '4', value: '4' },
+    { label: '5', value: '5' },
+    { label: '6', value: '6' },
+    { label: '-', value: '-', className: 'operator' },
+    { label: '1', value: '1' },
+    { label: '2', value: '2' },
+    { label: '3', value: '3' },
+    { label: '+', value: '+', className: 'operator' },
+    { label: '0', value: '0', className: 'zero' },
+    { label: '.', value: '.' },
+    { label: '=', value: '=', className: 'equals' }
   ];
 
-  const title = 'Calculator for daily life use';
+  const title = 'Modern Calculator';
   const [expr, setExpr] = useState('');
+  const [history, setHistory] = useState('');
+  const [darkMode, setDarkMode] = useState(false);
 
-  const isOperator = (ch) => ['+', '-', '*', '/'].includes(ch);
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', darkMode);
+  }, [darkMode]);
+
+  const isOperator = (ch) => ['+', '-', '*', '/', '%'].includes(ch);
 
   const handleInputChange = (e) => {
     setExpr(e.target.value);
   };
 
-  const handleClick = (e) => {
-    const val = e.currentTarget.getAttribute('data-value');
+  const handleClick = (val) => {
+    if (val === 'clear') {
+      setExpr('');
+      setHistory('');
+      return;
+    }
 
     if (val === 'Del') {
       setExpr((s) => s.slice(0, -1));
@@ -31,6 +56,7 @@ function Calculator() {
         const last = expr[expr.length - 1];
         if (isOperator(last)) return;
         const result = new Function('"use strict"; return (' + expr + ')')();
+        setHistory(expr + ' =');
         setExpr(String(result));
       } catch (err) {
         setExpr('Error');
@@ -61,11 +87,23 @@ function Calculator() {
     setExpr((s) => s + String(val));
   };
 
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <div className="calc-wrap">
       <div className="calc-card">
-        <h2 className="calc-title">{title}</h2>
+        <div className="calc-header">
+          <button className="theme-toggle" onClick={toggleTheme}>
+            <i className={darkMode ? "fas fa-sun" : "fas fa-moon"}></i>
+          </button>
+          <h2 className="calc-title">{title}</h2>
+          <div style={{width: '42px'}}></div>
+        </div>
+        
         <div className="display-row">
+          <div className="calc-history">{history}</div>
           <input
             type="text"
             className="calc-result"
@@ -74,20 +112,23 @@ function Calculator() {
             placeholder="0"
           />
         </div>
+        
         <div className="calc-container">
-          {calcnum.map((num, idx) => (
+          {calcButtons.map((btn, idx) => (
             <button
-              key={String(num) + idx}
-              data-value={num}
-              className={"calc-keypad " + (String(num) === 'Del' ? 'key-del' : '')}
-              onClick={handleClick}
+              key={btn.value + idx}
+              className={`calc-keypad ${btn.className || ''}`}
+              onClick={() => handleClick(btn.value)}
             >
-              {num}
+              {btn.label}
             </button>
           ))}
         </div>
       </div>
-      <footer className="calc-footer">Made with ❤️ — Drop to Netlify by <a href="https://sanjeevchoudhary.com" target="_blank">Sanjeev</a></footer>
+      
+      <footer className="calc-footer">
+        Made with <span className="heart">❤️</span> by <a href="https://sanjeevchoudhary.com" target="_blank">Sanjeev</a>
+      </footer>
     </div>
   );
 }
