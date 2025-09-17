@@ -8,7 +8,7 @@ function Calculator() {
     '-', '*', '/'
   ];
 
-  const title = 'Simple ReactJs Calculator';
+  const title = 'Calculator for daily life use';
   const [expr, setExpr] = useState('');
 
   const isOperator = (ch) => ['+', '-', '*', '/'].includes(ch);
