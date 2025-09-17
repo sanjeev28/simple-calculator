@@ -45,8 +45,8 @@ body {
   margin:0 0 10px 0;
   font-size:18px;
   font-weight:700;
-  color: #0f172a;
-  letter-spacing:-0.2px;
+  color: #0f172a;  
+  text-align: centre;
 }
 
 .display-row{
