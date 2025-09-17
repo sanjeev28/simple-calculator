@@ -161,6 +161,7 @@ body::after {
   color: var(--text-primary);
   min-height: 90px;
   transition: all 0.3s ease;
+  font-family: 'Fredoka';
 }
 
 .calc-history {
@@ -170,6 +171,7 @@ body::after {
   font-size: 14px;
   color: var(--text-secondary);
   opacity: 0.7;
+  font-family: 'Fredoka';
 }
 
 .calc-container {
@@ -194,6 +196,7 @@ body::after {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  font-family: 'Fredoka';
 }
 
 .calc-keypad::before {
