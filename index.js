@@ -27,10 +27,10 @@ function Calculator() {
 
     if (val === '=') {
       try {
-        if (expr === '' && val === '=') return;
+        if (expr === '') return;
         const last = expr[expr.length - 1];
         if (isOperator(last)) return;
-        const result = Function(\`"use strict"; return (\${expr})\`)();
+        const result = new Function('"use strict"; return (' + expr + ')')();
         setExpr(String(result));
       } catch (err) {
         setExpr('Error');
