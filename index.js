@@ -62,27 +62,32 @@ function Calculator() {
   };
 
   return (
-    <div className="calc-master-container">
-      <h2 className="calc-title">{title}</h2>
-      <input
-        type="text"
-        className="calc-result"
-        value={expr}
-        onChange={handleInputChange}
-        placeholder="0"
-      />
-      <div className="calc-container">
-        {calcnum.map((num, idx) => (
-          <button
-            key={String(num) + idx}
-            data-value={num}
-            className="calc-keypad"
-            onClick={handleClick}
-          >
-            {num}
-          </button>
-        ))}
+    <div className="calc-wrap">
+      <div className="calc-card">
+        <h2 className="calc-title">{title}</h2>
+        <div className="display-row">
+          <input
+            type="text"
+            className="calc-result"
+            value={expr}
+            onChange={handleInputChange}
+            placeholder="0"
+          />
+        </div>
+        <div className="calc-container">
+          {calcnum.map((num, idx) => (
+            <button
+              key={String(num) + idx}
+              data-value={num}
+              className={"calc-keypad " + (String(num) === 'Del' ? 'key-del' : '')}
+              onClick={handleClick}
+            >
+              {num}
+            </button>
+          ))}
+        </div>
       </div>
+      <footer className="calc-footer">Made with ❤️ — Drop to Netlify</footer>
     </div>
   );
 }
