@@ -87,7 +87,7 @@ function Calculator() {
           ))}
         </div>
       </div>
-      <footer className="calc-footer">Made with ❤️ — Drop to Netlify by <a href="sanjeevchoudhary.com" target="_blank"></footer>
+      <footer className="calc-footer">Made with ❤️ — Drop to Netlify by <a href="sanjeevchoudhary.com" target="_blank">Sanjeev</a></footer>
     </div>
   );
 }
