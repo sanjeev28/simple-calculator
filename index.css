@@ -1,283 +1,283 @@
 :root {
-      --bg1: #f0f4ff;
-      --bg2: #d9e4ff;
-      --card: rgba(255, 255, 255, 0.95);
-      --accent: #6366f1;
-      --accent-dark: #4f46e5;
-      --accent-light: #818cf8;
-      --muted: #6b7280;
-      --button-bg: rgba(255, 255, 255, 0.7);
-      --button-border: rgba(209, 213, 219, 0.4);
-      --shadow: 0 12px 30px rgba(16, 24, 40, 0.15);
-      --text-primary: #1f2937;
-      --text-secondary: #4b5563;
-      --success: #10b981;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-    }
+  --bg1: #f0f4ff;
+  --bg2: #d9e4ff;
+  --card: rgba(255, 255, 255, 0.95);
+  --accent: #6366f1;
+  --accent-dark: #4f46e5;
+  --accent-light: #818cf8;
+  --muted: #6b7280;
+  --button-bg: rgba(255, 255, 255, 0.7);
+  --button-border: rgba(209, 213, 219, 0.4);
+  --shadow: 0 12px 30px rgba(16, 24, 40, 0.15);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
 
-    .dark-mode {
-      --bg1: #1a2238;
-      --bg2: #111827;
-      --card: rgba(30, 41, 59, 0.95);
-      --button-bg: rgba(30, 41, 59, 0.7);
-      --button-border: rgba(55, 65, 81, 0.4);
-      --text-primary: #f3f4f6;
-      --text-secondary: #d1d5db;
-    }
+.dark-mode {
+  --bg1: #1a2238;
+  --bg2: #111827;
+  --card: rgba(30, 41, 59, 0.95);
+  --button-bg: rgba(30, 41, 59, 0.7);
+  --button-border: rgba(55, 65, 81, 0.4);
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    html, body, #root {
-      height: 100%;
-    }
+html, body, #root {
+  height: 100%;
+}
 
-    body {
-      margin: 0;
-      font-family: "Fredoka", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      color: var(--text-primary);
-      transition: background 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  font-family: "Fredoka", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--text-primary);
+  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-    /* Decorative background elements */
-    body::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, var(--accent-light), transparent);
-      top: -100px;
-      left: -100px;
-      opacity: 0.3;
-      z-index: -1;
-      transition: all 0.5s ease;
-    }
+/* Decorative background elements */
+body::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--accent-light), transparent);
+  top: -100px;
+  left: -100px;
+  opacity: 0.3;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
 
-    body::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: linear-gradient(45deg, transparent, var(--accent));
-      bottom: -50px;
-      right: -50px;
-      opacity: 0.2;
-      z-index: -1;
-      transition: all 0.5s ease;
-    }
+body::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, var(--accent));
+  bottom: -50px;
+  right: -50px;
+  opacity: 0.2;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
 
-    .calc-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      width: 100%;
-      max-width: 380px;
-      z-index: 1;
-    }
+.calc-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 380px;
+  z-index: 1;
+}
 
-    .calc-card {
-      background: var(--card);
-      border-radius: 24px;
-      padding: 24px;
-      width: 100%;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
+.calc-card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
-    .calc-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-    .calc-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--accent-dark);
-      text-align: center;
-      flex: 1;
-      transition: color 0.3s ease;
-    }
+.calc-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-dark);
+  text-align: center;
+  flex: 1;
+  transition: color 0.3s ease;
+}
 
-    .theme-toggle {
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 18px;
-      transition: color 0.3s;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .theme-toggle:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: var(--accent);
-    }
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--accent);
+}
 
-    .display-row {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 20px;
-      position: relative;
-    }
+.display-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+}
 
-    .calc-result {
-      width: 100%;
-      text-align: right;
-      padding: 20px 16px;
-      font-size: 32px;
-      font-weight: 600;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      background: rgba(255, 255, 255, 0.5);
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
-      outline: none;
-      color: var(--text-primary);
-      min-height: 90px;
-      transition: all 0.3s ease;
-    }
+.calc-result {
+  width: 100%;
+  text-align: right;
+  padding: 20px 16px;
+  font-size: 32px;
+  font-weight: 600;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+  outline: none;
+  color: var(--text-primary);
+  min-height: 90px;
+  transition: all 0.3s ease;
+}
 
-    .calc-history {
-      position: absolute;
-      top: 8px;
-      right: 16px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      opacity: 0.7;
-    }
+.calc-history {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
 
-    .calc-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
+.calc-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
 
-    .calc-keypad {
-      padding: 16px 10px;
-      border-radius: 16px;
-      border: 1px solid var(--button-border);
-      background: var(--button-bg);
-      font-size: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      transition: all 0.2s ease;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
+.calc-keypad {
+  padding: 16px 10px;
+  border-radius: 16px;
+  border: 1px solid var(--button-border);
+  background: var(--button-bg);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
 
-    .calc-keypad::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
-      pointer-events: none;
-    }
+.calc-keypad::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  pointer-events: none;
+}
 
-    .calc-keypad:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    }
+.calc-keypad:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
 
-    .calc-keypad:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+.calc-keypad:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-    .calc-keypad.key-del {
-      background: linear-gradient(180deg, #ffebee, #ffcdd2);
-      border-color: rgba(239, 68, 68, 0.3);
-      color: var(--danger);
-    }
+.calc-keypad.key-del {
+  background: linear-gradient(180deg, #ffebee, #ffcdd2);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--danger);
+}
 
-    .calc-keypad.operator {
-      background: linear-gradient(180deg, rgba(99, 102, 241, 0.15), rgba(79, 70, 229, 0.1));
-      color: var(--accent-dark);
-      border-color: rgba(79, 70, 229, 0.15);
-    }
+.calc-keypad.operator {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.15), rgba(79, 70, 229, 0.1));
+  color: var(--accent-dark);
+  border-color: rgba(79, 70, 229, 0.15);
+}
 
-    .calc-keypad.equals {
-      background: linear-gradient(180deg, var(--accent-light), var(--accent-dark));
-      color: white;
-      border-color: rgba(79, 70, 229, 0.3);
-      grid-row: span 2;
-    }
+.calc-keypad.equals {
+  background: linear-gradient(180deg, var(--accent-light), var(--accent-dark));
+  color: white;
+  border-color: rgba(79, 70, 229, 0.3);
+  grid-row: span 2;
+}
 
-    .calc-keypad.zero {
-      grid-column: span 2;
-    }
+.calc-keypad.zero {
+  grid-column: span 2;
+}
 
-    .calc-footer {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 10px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      transition: color 0.3s ease;
-    }
+.calc-footer {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
 
-    .heart {
-      color: #ff4757;
-      display: inline-block;
-      animation: pulse 1.5s infinite;
-    }
+.heart {
+  color: #ff4757;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
 
-    /* Responsive adjustments */
-    @media (max-width: 420px) {
-      .calc-container {
-        grid-template-columns: repeat(4, 1fr);
-      }
-      
-      .calc-keypad {
-        min-height: 54px;
-        font-size: 18px;
-        padding: 14px 8px;
-      }
-      
-      .calc-result {
-        font-size: 28px;
-        padding: 16px;
-      }
-    }
+/* Responsive adjustments */
+@media (max-width: 420px) {
+  .calc-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .calc-keypad {
+    min-height: 54px;
+    font-size: 18px;
+    padding: 14px 8px;
+  }
+  
+  .calc-result {
+    font-size: 28px;
+    padding: 16px;
+  }
+}
